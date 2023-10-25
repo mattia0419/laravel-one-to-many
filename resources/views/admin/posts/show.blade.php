@@ -7,6 +7,7 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Title</th>
+            <th scope="col">Type</th>
             <th scope="col">Slug</th>
             <th scope="col">Created at</th>
             <th scope="col">Updated at</th>
@@ -17,6 +18,7 @@
                 <tr>
                     <th scope="row">{{ $post->id }}</th>
                     <td>{{$post->title}}</td>
+                    <td>{!! $post->getTypeBadge() !!}</td>
                     <td>{{$post->slug}}</td>
                     <td>{{$post->created_at}}</td>
                     <td>{{$post->updated_at}}</td>

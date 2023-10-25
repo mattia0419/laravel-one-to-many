@@ -18,7 +18,7 @@
     @csrf
     @method('PUT')
     <div class="row g-3">
-      <div class="col-6">
+      <div class="col-4">
         <label for="title">
           Titolo
       </label>
@@ -29,7 +29,24 @@
       </div>
       @enderror
       </div>
-      <div class="col-6">
+      <div class="col-4">
+        <label for="type_id">
+          Type
+      </label>
+      <select name="type_id" id="type_id" class="form-select">
+        <option value="" @if(old('type_id') == '') selected @endif>Senza tipo</option>
+        @foreach ($types as $type)
+            <option value="{{ $type->id }}" @if(old('type_id') == $type->id) selected @endif>{{ $type->name }}</option>
+        @endforeach
+      </select>
+      @error('type_id')
+      <div class="invalid-feedback">
+          {{ $message }}
+      </div>
+      
+      @enderror
+    </div>
+      <div class="col-4">
         <label for="slug">
           Slug
       </label>
